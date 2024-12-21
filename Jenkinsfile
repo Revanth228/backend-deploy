@@ -37,18 +37,18 @@ pipeline {
             steps{
                sh """
                    cd terraform
-                   terraform plan
+                   terraform plan -var="app_version=${params.appVersion}"
                """
             }
         }
-    stage('terraform apply'){
-            steps{
-               sh """
-                   cd terraform
-                   terraform apply -auto-approve
-               """
-            }
-        }
+    // stage('terraform apply'){
+    //         steps{
+    //            sh """
+    //                cd terraform
+    //                terraform apply -auto-approve
+    //            """
+    //         }
+    //     }
         
     }
     post { 
