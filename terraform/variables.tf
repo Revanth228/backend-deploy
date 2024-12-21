@@ -24,4 +24,8 @@ variable "zone_name"{
     default= "daws78s-rev.online"
 }
 
+variable "appVersion" {
+  
+}
+
 
