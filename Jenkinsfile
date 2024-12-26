@@ -41,14 +41,14 @@ pipeline {
                """
             }
         }
-    // stage('terraform apply'){
-    //         steps{
-    //            sh """
-    //                cd terraform
-    //                terraform apply -auto-approve
-    //            """
-    //         }
-    //     }
+    stage('terraform apply'){
+            steps{
+               sh """
+                   cd terraform
+                   terraform apply -auto-approve
+               """
+            }
+        }
         
     }
     post { 
