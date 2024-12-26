@@ -1,11 +1,20 @@
 #!/bin/bash
+
 component=$1
 environment=$2
-app_Version=$3
+appVersion=$3
+
 dnf install ansible -y
-pip3.9 install botocore boto3
+
+# Create virtual environment (optional)
+source venv/bin/activate  # Modify the path if needed
+
+pip install botocore boto3
+
 ansible-pull -i localhost \
   -U https://github.com/daws-78s/expense-ansible-roles-tf.git \
   main.yaml \
-  -e env=$environment  # Pass environment variable
-  -e component=$component -e appVersion=$appVersion  # Existing variables
+  -e env=$environment -e component=$component -e appVersion=$appVersion
+
+# Deactivate virtual environment (optional)
+deactivate
