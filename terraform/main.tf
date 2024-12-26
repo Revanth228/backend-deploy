@@ -124,7 +124,7 @@ resource "aws_autoscaling_group" "backend" {
     version = "$Latest"
   }
 
-  vpc_zone_identifier = split(",", data.aws_ssm_parameter.private_subnet_ids.value)
+  vpc_zone_identifier = split(",", data.aws_ssm_parameter.private_subnet_id.value)
 
   instance_refresh {
     strategy = "Rolling"
